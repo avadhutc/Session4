@@ -71,26 +71,51 @@ Softmax is not probability, but probability like! It's used in last prediction l
 
 ![softmax](softmax.png)
 ### 13. Learning Rate
+Learning rate or step size is a hyper-parameter that controls how much we are adjusting the weights of our network with respect the loss gradient. See effects of differnt learning rates.
 
+![lr](lr.png)
 ### 14. Batch Size, and effects of batch size
-
+We can't feed the entire dataset into the neural net at once. So, we divide dataset into Number of Batches or sets or parts.
+Batchsize should not be either too small or too high. It should be optimum, to have all datapoints variances in each batch. Selection of batchsize also depends on GPU capacity. See how training and test accuracies vary with different batchsizes.
+![batchsize](batchsize.png)
 ### 15. When to add validation checks
+We should have validation check per epoch. So that we can have entire record of validation checks.
 
 ### 16. Number of Epochs and when to increase them
+We can start with some x number of epochs. Understanding overfitting or underfitting scenarios we can either reduce or increase the number of epochs.
 
 ### 17. How do we know our network is not going well, comparatively, very early
+Once training begins, by observing either training and validation accuracy or training and validation loss in few epochs, we can find there is no improvements in training, validation accuarcy/loss or both.
 
 ### 18. Batch Normalization
-
+We normalize the input layer by adjusting and scaling the activations. For example, when we have features from 0 to 1 and some from 1 to 1000, we should normalize them to speed up learning. How about hidden layers. Batch normalization reduces the amount by what the hidden unit values shift around (covariance shift). To explain covariance shift, let’s have a deep network on cat detection. We train our data on only black cats’ images. So, if we now try to apply this network to data with colored cats, it is obvious; we’re not going to do well. The training set and the prediction set are both cats’ images but they differ a little bit. In other words, if an algorithm learned some X to Y mapping, and if the distribution of X changes, then we might need to retrain the learning algorithm by trying to align the distribution of X with the distribution of Y.
+![bn1](batchnorm1.JPG)
+![bn2](batchnorm2.JPG)
 ### 19. The distance of Batch Normalization from Prediction
-
+We don't use Batch Normalization close to Prediction. Because we want pass on information network learned to prediction layer without any changes.
 ### 20. DropOut
+Dropout generally used when gap between training and validation increasing. To reduce that gap dropout is helpful. It gives regularization effect by randomly turning off few neurons.
 
+![dropout](dropout.gif)
+![dropout1](dropout1.JPG)
+![dropout2](dropouteffect.JPG)
 ### 21. When do we introduce DropOut, or when do we know we have some overfitting
-
+When training accuracy improving, but not the validation accuracy. So gap between them is increasing, then we falls into overfitting situation.
 ### 22. LR schedule and concept behind it
+Optimizer objective is to converge faster. Some independent variables(features) have strong correlation and other have weak correlation 
+with dependent variable(output). So different learning rates are required for different features to converge faster. With LR schedule we can adjust learning rate at different scenarios and achive faster convergence.
+![lrscheduler](lrscheduler.png)
 
 ### 23. Adam vs SGD
+Stochastic Gradient Descent (SGD),is a variant of gradient descent. Instead of performing computations on the whole dataset — which is redundant and inefficient — SGD only computes on a small subset or random selection of data examples. SGD produces the same performance as regular gradient descent when the learning rate is low. SGD has trouble navigating ravines, i.e. areas where the surface curves much more steeply in one dimension than in another, which are common around local optima. In these scenarios, SGD oscillates across the slopes of the ravine while only making hesitant progress along the bottom towards the local optimum.
+Adaptive Moment Estimation (Adam),is an algorithm for gradient-based optimization of stochastic objective functions. It combines the advantages of two SGD extensions — Root Mean Square Propagation (RMSProp) and Adaptive Gradient Algorithm (AdaGrad) — and computes individual adaptive learning rates for different parameters. Check different optimizers convergence path
 
+![adamvssgd](sgd1.gif)
+![adamvssgd1](sgd2.gif)
+
+On MNIST dataset performance of different optimizers.
+![adamvssgd3](mnistadamsgd.JPG)
+
+[Reference: Differentially private optimization algorithms for deep neural networks](https://ieeexplore.ieee.org/document/8355063/figures#figures)
 ### 24. When do we stop convolutions and go ahead with a larger kernel or some other   	alternative (which we have not yet covered)
-
+When we form object in the image or reach the receptive field of object at prediction layer. Now we don't want to relearn features with convolutions, then we simply use larger kernels or Global Average Pooling(GAP) to adjust loud features into number of classes, before feeding for prediction.
