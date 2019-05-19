@@ -17,7 +17,7 @@
 Our objective is to have the final global receptive field (at the final prediction layer or output layer) to be equal to the size of the object. This is important as the network needs to "see" the whole image before it can predict exactly what the image is all about. 
 This would mean that we need to add as many layers are required to reach the final receptive field equal to the size of the object.
  
-![Receptive Field](RF.gif)
+![Receptive Field](images/RF.gif)
 
 Here in first layer as a 5x5 image, convolving  with a kernel of size 3x3, and hence the resulting output resolution will be a channel with 3x3 pixels/values. In second layer when we convolve on this 3x3 channel(last result) with a kernel of size 3x3, we will get only 1 output. 
 The final output of 1 or 1x1, we could have used a 5x5 kernel directly. 
