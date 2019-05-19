@@ -69,7 +69,7 @@ The position of maxpooling is a way from prediction layer to avoid loss of high 
 ### 12. SoftMax
 Softmax is not probability, but probability like! It's used in last prediction layer to maximize distance between different classes score and represent in terms of numbers. All class values prediction score sum to 1. Generally in real life critical situation softmax is not prefered. Its just to make us happy to see prediction score. :)
 
-![softmax](softmax.png)
+![softmax](https://github.com/avadhutc/Session4/blob/master/images/softmax.png)
 ### 13. Learning Rate
 Learning rate or step size is a hyper-parameter that controls how much we are adjusting the weights of our network with respect the loss gradient. See effects of differnt learning rates.
 
