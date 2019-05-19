@@ -89,6 +89,7 @@ Once training begins, by observing either training and validation accuracy or tr
 
 ## 18. Batch Normalization
 We normalize the input layer by adjusting and scaling the activations. For example, when we have features from 0 to 1 and some from 1 to 1000, we should normalize them to speed up learning. How about hidden layers. Batch normalization reduces the amount by what the hidden unit values shift around (covariance shift). To explain covariance shift, let’s have a deep network on cat detection. We train our data on only black cats’ images. So, if we now try to apply this network to data with colored cats, it is obvious; we’re not going to do well. The training set and the prediction set are both cats’ images but they differ a little bit. In other words, if an algorithm learned some X to Y mapping, and if the distribution of X changes, then we might need to retrain the learning algorithm by trying to align the distribution of X with the distribution of Y.
+
 ![bn1](images/batchnorm1.JPG)
 ![bn2](images/batchnorm2.JPG)
 ## 19. The distance of Batch Normalization from Prediction
@@ -114,6 +115,7 @@ Adaptive Moment Estimation (Adam),is an algorithm for gradient-based optimizatio
 ![adamvssgd1](images/sgd2.gif)
 
 On MNIST dataset performance of different optimizers.
+
 ![adamvssgd3](images/mnistadamsgd.JPG)
 
 [Reference: Differentially private optimization algorithms for deep neural networks](https://ieeexplore.ieee.org/document/8355063/figures#figures)
