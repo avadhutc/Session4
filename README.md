@@ -7,11 +7,9 @@
 **b)** your network will generalize better to novel data (because the normalization reduces the variability between your training               and test data)                                                                                                                    
 **c)** the inputs will fall within the useful range of your nonlinearities                                                                
 
-  there are three common techniques for image normalization: 
-  
-  **i.** Bring Pixel values in range of 0 to 1                                                                                            
-  **ii.**  Bring Pixel values in range of -1 to 1                                                                                        
-  **iii.** Bring Pixel values in range of 0 mean and  1 std dev 
+  it can be achieved with following technique for image normalization:   
+                                                                                        
+  **i.** Bring Pixel values in range of 0 mean and  1 std dev 
 
 ## 2.  Receptive Field
 Our objective is to have the final global receptive field (at the final prediction layer or output layer) to be equal to the size of the object. This is important as the network needs to "see" the whole image before it can predict exactly what the image is all about. 
@@ -79,7 +77,7 @@ We can't feed the entire dataset into the neural net at once. So, we divide data
 Batchsize should not be either too small or too high. It should be optimum, to have all datapoints variances in each batch. Selection of batchsize also depends on GPU capacity. See how training and test accuracies vary with different batchsizes.
 ![batchsize](images/batchsize.png)
 ## 15. When to add validation checks
-We should have validation check per epoch. So that we can have entire record of validation checks.
+We can have validation check per epoch,if dataset is smaller in size. But Imagenet dataset is huge, so validation check per epoch is costly operation. So it can be used after few epochs e.g after every 50 epochs. So that we can track performance of model on unseen data.
 
 ## 16. Number of Epochs and when to increase them
 We can start with some x number of epochs. Understanding overfitting or underfitting scenarios we can either reduce or increase the number of epochs.
